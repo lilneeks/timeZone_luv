@@ -1,1 +1,66 @@
 /* Your CSS styles here */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+}
+
+#message {
+    font-weight: bold;
+    text-align: center;
+}
+
+#player-cards, #dealer-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#player-cards div, #dealer-cards div {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* New style for the overlay */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* New style for the overlay content */
+#overlay-content {
+    color: white;
+    font-size: 36px;
+    text-align: center;
+}
+
+/* New style for the "Try again" button */
+#try-again-button {
+    color: white;
+    font-size: 24px;
+    padding: 10px 20px;
+}
+
+/* Disable buttons when someone busts */
+.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
