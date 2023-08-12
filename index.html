@@ -1,37 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-
-    <title>Blackjack Game</title>
-
 </head>
 <body>
-    <h1>Blackjack Game</h1>
-    <button id="startBtn">Start Game</button>
-    <button id="newGameBtn" disabled>New Game</button>
-    <button id="hitBtn" disabled>Hit</button>
-    <button id="standBtn" disabled>Stand</button>
-    <p id="player-score">Player Score: 0</p>
-    <p id="dealer-score">Dealer Score: 0</p>
-    <p id="message"></p>
-    <p id="winsTracker">Wins: Player: 0, Dealer: 0</p>
-
-    <div id="player-cards"></div>
-    <div id="dealer-cards"></div>
-
-    <!-- Overlay div for "Try again" message -->
-    <div id="overlay" style="display: none;">
-        <div id="overlay-content">
-            <p>Try again?</p>
-            <button id="try-again-button">Yes</button>
+    <div class="container">
+        <div class="time-container">
+            <div class="time-zone">Nicko's Time:</div>
+            <div class="time" id="nicko-time"></div>
+        </div>
+        <div class="time-container">
+            <div class="time-zone">Sunyoung's Time:</div>
+            <div class="time" id="sunyoung-time"></div>
         </div>
     </div>
-
-
-
- <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
-
-   

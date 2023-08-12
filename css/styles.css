@@ -1,66 +1,39 @@
-/* Your CSS styles here */
-
 body {
-    font-family: Arial, sans-serif;
-}
-
-h1 {
-    text-align: center;
-}
-
-button {
-    margin: 5px;
-}
-
-#message {
-    font-weight: bold;
-    text-align: center;
-}
-
-#player-cards, #dealer-cards {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: black; /* Start as black */
+    transition: background-image 0.5s ease-in-out; /* Smooth transition */
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-}
-
-#player-cards div, #dealer-cards div {
-    border: 1px solid black;
-    padding: 5px;
-    margin: 5px;
-}
-
-/* New style for the overlay */
-#overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 999;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* New style for the overlay content */
-#overlay-content {
-    color: white;
-    font-size: 36px;
+.container {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
-/* New style for the "Try again" button */
-#try-again-button {
-    color: white;
-    font-size: 24px;
-    padding: 10px 20px;
+.time-container {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #ffccdd;
+    border-radius: 10px;
 }
 
-/* Disable buttons when someone busts */
-.disabled {
-    pointer-events: none;
-    opacity: 0.6;
+.time-zone {
+    font-size: 18px;
+    margin-bottom: 5px;
+    transition: color 0.2s ease-in-out;
+}
+
+.time {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
 }
