@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     
-    createRandomStars();  // Create stars immediately after defining the function
+    createRandomStars();
 
     function createShootingStar() {
         const x = Math.random() * window.innerWidth;
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.removeChild(shootingStar);
         }, 1500); // remove the shooting star after the animation completes
     
-        setTimeout(createShootingStar, Math.random() * 5000 + 2000); // Create a new shooting star every 2 to 7 seconds
+        setTimeout(createShootingStar, Math.random() * 5000 + 2000);
     }
     
     createShootingStar();
@@ -63,11 +63,41 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById(elementId).textContent = currentTime;
     }
 
-    function updateTimes() {
-        updateTime('America/Los_Angeles', 'nicko-time');
-        updateTime('Asia/Seoul', 'sunyoung-time');
-    }
+    function updateNamesAndTimezones() {
+        const nickoNameEl = document.getElementById('nicko-name');
+        const sunyoungNameEl = document.getElementById('sunyoung-name');
 
+        nickoNameEl.addEventListener('mouseover', () => {
+            nickoNameEl.querySelector('.name').style.display = 'none';
+            nickoNameEl.querySelector('.timezone').style.display = 'block';
+        });
+
+        nickoNameEl.addEventListener('mouseout', () => {
+            nickoNameEl.querySelector('.name').style.display = 'block';
+            nickoNameEl.querySelector('.timezone').style.display = 'none';
+        });
+
+        sunyoungNameEl.addEventListener('mouseover', () => {
+            sunyoungNameEl.querySelector('.name').style.display = 'none';
+            sunyoungNameEl.querySelector('.timezone').style.display = 'block';
+        });
+
+        sunyoungNameEl.addEventListener('mouseout', () => {
+            sunyoungNameEl.querySelector('.name').style.display = 'block';
+            sunyoungNameEl.querySelector('.timezone').style.display = 'none';
+
+
+        });
+
+        document.querySelectorAll('.initial-name').forEach(el => {
+            if (el.textContent.includes('Nicko')) {
+                el.style.color = 'blue';
+            } else if (el.textContent.includes('Sunyoung')) {
+                el.style.color = 'pink';
+            }
+        });
+        
+    }
     function animateCelestialBodies() {
         moonDegree += 0.012;
         sunDegree += 0.0023;
@@ -80,8 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animateCelestialBodies); 
     }
 
-    // Initial and periodic updates
-    updateTimes();
-    setInterval(updateTimes, 1000);
+    updateTime('America/Los_Angeles', 'nicko-time');
+    updateTime('Asia/Seoul', 'sunyoung-time');
+    setInterval(() => {
+        updateTime('America/Los_Angeles', 'nicko-time');  // Corrected timezone
+        updateTime('Asia/Seoul', 'sunyoung-time');         // Corrected timezone
+    }, 1000);
+
+    updateNamesAndTimezones();
     requestAnimationFrame(animateCelestialBodies); 
 });

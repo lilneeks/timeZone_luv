@@ -8,6 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    overflow: hidden; /* Prevent scroll due to shooting stars */
 }
 
 .time-container {
@@ -17,19 +18,28 @@ body {
     position: relative;
 }
 
-.time-zone {
+.time-zone, .person-name {
     font-size: 18px;
     margin-bottom: 5px;
     transition: color 0.2s ease-in-out;
     text-align: center;
     font-weight: bold;
+    color: white;
 }
+
 
 .time {
     font-size: 28px;
     font-weight: bold;
-    color: #333;
     text-align: center;
+}
+
+#nicko-time {
+    color: blue;
+}
+
+#sunyoung-time {
+    color: pink;
 }
 
 .earth {
@@ -67,29 +77,6 @@ body {
     transform: translateY(-50%);
 }
 
-/* Remove these conflicting styles */
-/*
-.time-container:nth-child(1) .time-zone {
-    color: blue;
-    font-weight: bold;
-}
-
-.time-container:nth-child(2) .time-zone {
-    color: pink;
-    font-weight: bold;
-}
-*/
-
-body #nicko-time {
-    color: blue;
-    font-weight: bold;
-}
-
-body #sunyoung-time {
-    color: pink;
-    font-weight: bold;
-}
-
 .shooting-star {
     position: absolute;
     width: 3px;
@@ -111,4 +98,17 @@ body #sunyoung-time {
         opacity: 0;
         transform: translate(100px, 100px);
     }
+}
+
+
+.initial-name {
+    font-weight: bold;
+}
+
+#nicko-time {
+    color: blue;
+}
+
+#sunyoung-time {
+    color: pink;
 }
