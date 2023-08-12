@@ -1,39 +1,114 @@
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-color: black; /* Start as black */
-    transition: background-image 0.5s ease-in-out; /* Smooth transition */
+    background-color: black;
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-.container {
-    max-width: 300px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
 .time-container {
-    margin: 20px 0;
-    padding: 15px;
-    background-color: #ffccdd;
-    border-radius: 10px;
+    margin: 40px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
 }
 
 .time-zone {
     font-size: 18px;
     margin-bottom: 5px;
     transition: color 0.2s ease-in-out;
+    text-align: center;
+    font-weight: bold;
 }
 
 .time {
     font-size: 28px;
     font-weight: bold;
     color: #333;
+    text-align: center;
+}
+
+.earth {
+    width: 100px;
+    height: 100px;
+    background-color: #0077D9;
+    background-image: radial-gradient(circle at 20% 20%, #fff, #0077D9 20%);
+    border-radius: 50%;
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.moon {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    background-image: radial-gradient(circle at 70% 40%, #bbb, #ddd 30%);
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% + 60px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sun {
+    width: 60px;
+    height: 60px;
+    background-color: #FDB813;
+    background-image: radial-gradient(circle at 30% 30%, #FEF5A2, #FDB813 70%);
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% - 220px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Remove these conflicting styles */
+/*
+.time-container:nth-child(1) .time-zone {
+    color: blue;
+    font-weight: bold;
+}
+
+.time-container:nth-child(2) .time-zone {
+    color: pink;
+    font-weight: bold;
+}
+*/
+
+body #nicko-time {
+    color: blue;
+    font-weight: bold;
+}
+
+body #sunyoung-time {
+    color: pink;
+    font-weight: bold;
+}
+
+.shooting-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    animation: shootStar 1.5s linear forwards;
+}
+
+@keyframes shootStar {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(100px, 100px);
+    }
 }
