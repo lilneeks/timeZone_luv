@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const starSize = 1;
         const earthRect = earth.getBoundingClientRect();
         const fragment = document.createDocumentFragment();
+        let createdStars = 0;
 
-        for (let i = 0; i < starCount; i++) {
+        while (createdStars < starCount) {
             const x = Math.random() * window.innerWidth;
             const y = Math.random() * window.innerHeight;
 
@@ -28,7 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
             starElement.style.backgroundColor = "white";
             starElement.style.borderRadius = "50%";
             fragment.appendChild(starElement);
+            createdStars++;
         }
+
         document.body.appendChild(fragment);
     }
 
@@ -56,6 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById(elementId).textContent = currentTime;
     }
 
+    function updateBothTimes() {
+        updateTime('America/Los_Angeles', 'nicko-time');
+        updateTime('Asia/Seoul', 'sunyoung-time');
+    }
+
     function colorNames() {
         const names = document.querySelectorAll('.initial-name');
         names.forEach(el => {
@@ -79,12 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animateCelestialBodies);
     }
 
-    updateTime('America/Los_Angeles', 'nicko-time');
-    updateTime('Asia/Seoul', 'sunyoung-time');
-    setInterval(() => {
-        updateTime('America/Los_Angeles', 'nicko-time');
-        updateTime('Asia/Seoul', 'sunyoung-time');
-    }, 1000);
+    updateBothTimes();
+    setInterval(updateBothTimes, 1000);
 
     createRandomStars();
     createShootingStar();
