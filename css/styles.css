@@ -49,8 +49,8 @@ body {
 
 
 .sun {
-    width: 120px; /* Adjusted size */
-    height: 120px;
+    width: 150px; 
+    height: 150px;
     background-color: #FDB813;
     background-image: radial-gradient(circle at 30% 30%, #FEF5A2, #FDB813 70%);
     border-radius: 50%;
