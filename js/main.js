@@ -2,6 +2,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const moon = document.querySelector('.moon');
     const sun = document.querySelector('.sun');
     const earth = document.querySelector('.earth');
+
+    let earthRotationSpeed = 360 / (24 * 60 * 60); // Rotates 360 degrees every 24 hours
+    let moonOrbitSpeed = 360 / (27.3 * 24 * 60 * 60); // Orbits Earth every 27.3 days
+    let sunOrbitSpeed = 360 / (365.25 * 24 * 60 * 60); // Earth orbits Sun every 365.25 days
+
+    // Speed it up by a factor of 10
+    earthRotationSpeed *= 10;
+    moonOrbitSpeed *= 10;
+    sunOrbitSpeed *= 10;
+
     let moonDegree = 0;
     let sunDegree = 0;
     let earthRotation = 0;
@@ -76,15 +86,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function animateCelestialBodies() {
-        moonDegree += 0.012;
-        sunDegree += 0.0023;
-        earthRotation += 0.005;
+    
+    moonDegree += moonOrbitSpeed;
+    moonDegree += moonOrbitSpeed;
+    sunDegree += sunOrbitSpeed; // though the sun doesn't move, keep this if you plan to move it later
+    earthRotation += earthRotationSpeed;
+   // The earth will revolve around the sun.
+   earth.style.transform = `translateY(-50%) rotate(${earthRotation}deg) translateX(250px) rotate(-${earthRotation}deg)`;
 
-        moon.style.transform = `translateY(-50%) rotate(${moonDegree}deg) translateX(200px) rotate(-${moonDegree}deg)`;
-        sun.style.transform = `translateY(-50%) rotate(${sunDegree}deg) translateX(350px) rotate(-${sunDegree}deg)`;
-        earth.style.backgroundImage = `radial-gradient(circle at ${earthRotation%100}% 20%, #fff, #0077D9 20%)`;
+   // The moon will revolve around the earth, thus its position is relative to the earth.
+   moon.style.transform = `translateY(-50%) rotate(${moonDegree}deg) translateX(70px) rotate(-${moonDegree}deg)`;
 
-        requestAnimationFrame(animateCelestialBodies);
+   requestAnimationFrame(animateCelestialBodies);
     }
 
     updateBothTimes();
