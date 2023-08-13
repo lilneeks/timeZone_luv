@@ -8,33 +8,34 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden; /* Prevent scroll due to shooting stars */
-    position: relative; /* Add this to make sure we can position our solar-system */
+    overflow: hidden;
+    position: relative;
 }
 
-
-
 .time-container {
-    margin: 40px 0;
+    margin: 20px 0;
     text-align: center;
     width: 100%;
-    position: absolute;  /* Updated */
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2;  /* Ensure it's in front of our celestial system */
+    z-index: 2;
 }
 
 #top-time {
-    top: 5%;  /* Position it closer to the top */
+    top: 5%;
 }
 
 #bottom-time {
-    bottom: 5%;  /* Position it closer to the bottom */
+    bottom: 1%; /* Decreased for a tighter position to bottom */
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 }
 
 .time-zone, .person-name {
-    font-size: 24px;  /* Increased font size */
-    margin-bottom: 10px;  /* Adjusted spacing */
+    font-size: 24px;
+    margin-bottom: 10px;
     transition: color 0.2s ease-in-out;
     text-align: center;
     font-weight: bold;
@@ -42,14 +43,20 @@ body {
 }
 
 .time {
-    font-size: 36px;  /* Increased font size */
+    font-size: 36px;
     font-weight: bold;
     text-align: center;
 }
 
+.solar-system {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 100px 0;
+}
 
 .sun {
-    width: 150px; 
+    width: 150px;
     height: 150px;
     background-color: #FDB813;
     background-image: radial-gradient(circle at 30% 30%, #FEF5A2, #FDB813 70%);
@@ -61,29 +68,28 @@ body {
 }
 
 .earth {
-    width: 50px; 
+    width: 50px;
     height: 50px;
     background-color: #0077D9;
     background-image: radial-gradient(circle at 20% 20%, #fff, #0077D9 20%);
     border-radius: 50%;
     position: absolute;
-    top: 50%; 
+    top: 50%;
     left: 50%;
-    transform-origin: center 250px; /* this will make Earth revolve around Sun at a distance of 250px */
+    transform-origin: center 250px;
 }
 
 .moon {
-    width: 15px; 
+    width: 15px;
     height: 15px;
     background-color: #ddd;
     background-image: radial-gradient(circle at 70% 40%, #bbb, #ddd 30%);
     border-radius: 50%;
     position: absolute;
-    top: 50%; 
+    top: 50%;
     left: 50%;
-    transform-origin: center 70px; /* this will make Moon revolve around Earth at a distance of 70px */
+    transform-origin: center 70px;
 }
-
 
 .shooting-star {
     position: absolute;
@@ -107,7 +113,6 @@ body {
         transform: translate(100px, 100px);
     }
 }
-
 
 .initial-name {
     font-weight: bold;
