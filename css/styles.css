@@ -53,6 +53,7 @@ body {
     width: 150px;
     height: 150px;
     margin: 100px 0;
+    z-index: 1; /* Set a higher z-index for the celestial bodies */
 }
 
 .sun {
@@ -77,7 +78,7 @@ body {
     top: 50%;
     left: 50%;
     transform-origin: center 250px;
-    animation: earthOrbit 30s infinite linear; /* Adjust time as needed */
+    animation: earthOrbit 30s infinite linear;
 }
 
 .moon {
@@ -90,7 +91,7 @@ body {
     top: 50%;
     left: 50%;
     transform-origin: center 70px;
-    animation: moonOrbit 7.5s infinite linear; /* Adjust time as needed */
+    animation: moonOrbit 7.5s infinite linear;
 }
 
 .shooting-star {
@@ -100,6 +101,7 @@ body {
     background-color: white;
     border-radius: 50%;
     animation: shootStar 1.5s linear forwards;
+    z-index: 0; /* Set a lower z-index for the stars */
 }
 
 @keyframes shootStar {
@@ -118,7 +120,6 @@ body {
 
 .initial-name {
     font-weight: bold;
-    color: blue; /* Updated to set default color */
 }
 
 #nicko-time {
