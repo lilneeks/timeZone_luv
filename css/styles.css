@@ -27,7 +27,7 @@ body {
 }
 
 #bottom-time {
-    bottom: 1%; /* Decreased for a tighter position to bottom */
+    bottom: 1%;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -118,6 +118,7 @@ body {
 
 .initial-name {
     font-weight: bold;
+    color: blue; /* Updated to set default color */
 }
 
 #nicko-time {
@@ -136,7 +137,6 @@ body {
         transform: rotate(360deg) translate(250px) rotate(-360deg);
     }
 }
-
 
 @keyframes moonOrbit {
     0% {
