@@ -77,6 +77,7 @@ body {
     top: 50%;
     left: 50%;
     transform-origin: center 250px;
+    animation: earthOrbit 30s infinite linear; /* Adjust time as needed */
 }
 
 .moon {
@@ -89,6 +90,7 @@ body {
     top: 50%;
     left: 50%;
     transform-origin: center 70px;
+    animation: moonOrbit 7.5s infinite linear; /* Adjust time as needed */
 }
 
 .shooting-star {
@@ -124,4 +126,23 @@ body {
 
 #sunyoung-time {
     color: pink;
+}
+
+@keyframes earthOrbit {
+    0% {
+        transform: rotate(0deg) translate(250px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translate(250px) rotate(-360deg);
+    }
+}
+
+
+@keyframes moonOrbit {
+    0% {
+        transform: rotate(0deg) translate(70px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translate(70px) rotate(-360deg);
+    }
 }

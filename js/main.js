@@ -86,20 +86,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function animateCelestialBodies() {
-    
-    moonDegree += moonOrbitSpeed;
-    moonDegree += moonOrbitSpeed;
-    sunDegree += sunOrbitSpeed; // though the sun doesn't move, keep this if you plan to move it later
-    earthRotation += earthRotationSpeed;
-   // The earth will revolve around the sun.
-   earth.style.transform = `translateY(-50%) rotate(${earthRotation}deg) translateX(250px) rotate(-${earthRotation}deg)`;
+        moonDegree += moonOrbitSpeed;
+        sunDegree += sunOrbitSpeed; // though the sun doesn't move, keep this if you plan to move it later
+        earthRotation += earthRotationSpeed;
 
-   // The moon will revolve around the earth, thus its position is relative to the earth.
-   moon.style.transform = `translateY(-50%) rotate(${moonDegree}deg) translateX(70px) rotate(-${moonDegree}deg)`;
+        // The earth will revolve around the sun.
+        earth.style.transform = `translateY(-50%) rotate(${earthRotation}deg) translateX(250px) rotate(-${earthRotation}deg)`;
 
-   requestAnimationFrame(animateCelestialBodies);
+        // The moon will revolve around the earth, thus its position is relative to the earth.
+        moon.style.transform = `translateY(-50%) rotate(${moonDegree}deg) translateX(70px) rotate(-${moonDegree}deg)`;
+
+        requestAnimationFrame(animateCelestialBodies);
     }
 
+    // Initial and periodic updates
     updateBothTimes();
     setInterval(updateBothTimes, 1000);
 
