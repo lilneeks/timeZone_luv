@@ -53,25 +53,25 @@ body {
     width: 150px;
     height: 150px;
     margin: 100px 0;
-    z-index: 1; /* Set a higher z-index for the celestial bodies */
+    z-index: 1;
 }
 
 .sun {
     width: 150px;
     height: 150px;
-    background-color: #FDB813;
     background-image: radial-gradient(circle at 30% 30%, #FEF5A2, #FDB813 70%);
     border-radius: 50%;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    background-size: cover;
+    z-index: 2;
 }
 
 .earth {
     width: 50px;
     height: 50px;
-    background-color: #0077D9;
     background-image: radial-gradient(circle at 20% 20%, #fff, #0077D9 20%);
     border-radius: 50%;
     position: absolute;
@@ -79,12 +79,13 @@ body {
     left: 50%;
     transform-origin: center 250px;
     animation: earthOrbit 30s infinite linear;
+    background-size: cover;
+    z-index: 3;
 }
 
 .moon {
     width: 15px;
     height: 15px;
-    background-color: #ddd;
     background-image: radial-gradient(circle at 70% 40%, #bbb, #ddd 30%);
     border-radius: 50%;
     position: absolute;
@@ -92,6 +93,8 @@ body {
     left: 50%;
     transform-origin: center 70px;
     animation: moonOrbit 7.5s infinite linear;
+    background-size: cover;
+    z-index: 4;
 }
 
 .shooting-star {
@@ -101,7 +104,7 @@ body {
     background-color: white;
     border-radius: 50%;
     animation: shootStar 1.5s linear forwards;
-    z-index: 0; /* Set a lower z-index for the stars */
+    z-index: 0;
 }
 
 @keyframes shootStar {

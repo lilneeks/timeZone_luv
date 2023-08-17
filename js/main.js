@@ -3,11 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const sun = document.querySelector('.sun');
     const earth = document.querySelector('.earth');
 
-    let earthRotationSpeed = 360 / (24 * 60 * 60); // Rotates 360 degrees every 24 hours
-    let moonOrbitSpeed = 360 / (27.3 * 24 * 60 * 60); // Orbits Earth every 27.3 days
-    let sunOrbitSpeed = 360 / (365.25 * 24 * 60 * 60); // Earth orbits Sun every 365.25 days
+    let earthRotationSpeed = 360 / (24 * 60 * 60); 
+    let moonOrbitSpeed = 360 / (27.3 * 24 * 60 * 60); 
+    let sunOrbitSpeed = 360 / (365.25 * 24 * 60 * 60); 
 
-    // Speed it up by a factor of 10
     earthRotationSpeed *= 10;
     moonOrbitSpeed *= 10;
     sunOrbitSpeed *= 10;
@@ -31,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (y <= 100 || (window.innerHeight - y) <= 100) continue;
 
             const starElement = document.createElement("div");
+            starElement.className = "star";
             starElement.style.position = "absolute";
             starElement.style.top = y + "px";
             starElement.style.left = x + "px";
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             starElement.style.backgroundColor = "white";
             starElement.style.borderRadius = "50%";
             fragment.appendChild(starElement);
+            
             createdStars++;
         }
 
@@ -87,13 +88,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function animateCelestialBodies() {
         moonDegree += moonOrbitSpeed;
-        sunDegree += sunOrbitSpeed; // though the sun doesn't move, keep this if you plan to move it later
+        sunDegree += sunOrbitSpeed;
         earthRotation += earthRotationSpeed;
 
-        // The earth will revolve around the sun.
         earth.style.transform = `translateY(-50%) rotate(${earthRotation}deg) translateX(250px) rotate(-${earthRotation}deg)`;
-
-        // The moon will revolve around the earth, thus its position is relative to the earth.
         moon.style.transform = `translateY(-50%) rotate(${moonDegree}deg) translateX(70px) rotate(-${moonDegree}deg)`;
 
         requestAnimationFrame(animateCelestialBodies);
@@ -107,4 +105,12 @@ document.addEventListener('DOMContentLoaded', function() {
     createShootingStar();
     colorNames();
     requestAnimationFrame(animateCelestialBodies);
+
+    // Handle the resize event
+    window.addEventListener('resize', function() {
+        const stars = document.querySelectorAll('.star');
+        stars.forEach(star => star.remove());
+
+        createRandomStars();
+    });
 });
