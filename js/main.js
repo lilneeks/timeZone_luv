@@ -1,7 +1,3 @@
-let nicko = boy;
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const moon = document.querySelector('.moon');
     const sun = document.querySelector('.sun');
